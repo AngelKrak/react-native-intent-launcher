@@ -1,6 +1,5 @@
-# react-native-intent-launcher  
-[![version](https://img.shields.io/npm/v/@angelkrak/react-native-intent-launcher.svg)](https://www.npmjs.com/package/@angelkrak/react-native-intent-launcher) [![downloads](https://img.shields.io/npm/dm/@angelkrak/react-native-intent-launcher.svg?style=flat)](https://www.npmjs.com/package/@angelkrak/react-native-intent-launcher)
-[![downloads](https://img.shields.io/npm/dt/@angelkrak/react-native-intent-launcher.svg?style=flat)](https://www.npmjs.com/package/@angelkrak/react-native-intent-launcher)  
+# React Native Intent Launcher
+[![npm version](https://badge.fury.io/js/@angelkrak%2Freact-native-intent-launcher.svg)](https://badge.fury.io/js/@angelkrak%2Freact-native-intent-launcher) [![downloads](https://img.shields.io/npm/dt/@angelkrak/react-native-intent-launcher.svg)](https://npmcharts.com/compare/@angelkrak/react-native-intent-launcher?minimal=true) ![MIT](https://img.shields.io/dub/l/vibe-d.svg) ![Platform - Android](https://img.shields.io/badge/platforms-android-lightgrey.svg)
 
 call native function `startActivity` in react-native
 
@@ -42,46 +41,48 @@ You can also use IntentLauncherClass.js directly in your project. Here's how to 
 ```javascript
 import { IntentLauncherClass } from '@angelkrak/react-native-intent-launcher'; 
 
-// Ejemplo de cómo lanzar una actividad
+// Example of how to launch an activity
 const params = {
   action: 'android.settings.APPLICATION_DETAILS_SETTINGS',
   data: 'package:com.example'
 };
 IntentLauncherClass.startActivity(params);
 
-// Ejemplo de cómo lanzar una serie de intents secuencialmente
+// Example of how to launch a series of intents sequentially
 const intents = [
   { action: 'android.settings.APPLICATION_DETAILS_SETTINGS', data: 'package:com.example' },
-  action: 'android.intent.action.VIEW',
-  packageName: 'com.android.settings',
-  className: 'com.android.settings.InstalledAppDetails',
-  extra: {
-    'com.android.settings.ApplicationPkgName': "com.example",
-    'pkg': "com.example"
+  {
+    action: 'android.intent.action.VIEW',
+    packageName: 'com.android.settings',
+    className: 'com.android.settings.InstalledAppDetails',
+    extra: {
+      'com.android.settings.ApplicationPkgName': "com.example",
+      'pkg': "com.example"
+    }
   },
   'android.settings.MANAGE_APPLICATIONS_SETTINGS',
   'android.provider.Settings.ACTION_SETTINGS',
 ];
 IntentLauncherClass.launchIntents(intents);
 
-// Ejemplo de cómo verificar si una aplicación está instalada
-const packageName = 'com.android.chrome'; // Paquete de la aplicación Chrome
+// Example of how to check if an application is installed
+const packageName = 'com.android.chrome'; // Chrome application package
 IntentLauncherClass.isAppInstalled(packageName)
   .then((result) => {
-    console.log('La aplicación está instalada');
+    console.log('The application is installed');
   })
   .catch((error) => {
-    console.warn('La aplicación no está instalada', error);
+    console.warn('The application is not installed', error);
   });
 
-// Ejemplo de cómo iniciar otra aplicación por su nombre de paquete
-const packageNameToStart = 'com.android.chrome'; // Paquete de la aplicación Chrome
-IntentLauncherClass.startAppByPackageName(packageNameToStart)
+// Example of how to start another application by its package name
+const packageName = 'com.android.chrome'; // Chrome application package
+IntentLauncherClass.startAppByPackageName(packageName)
   .then((result) => {
-    console.log('La aplicación se ha iniciado');
+    console.log('The application has been started');
   })
   .catch((error) => {
-    console.warn('No se pudo iniciar la aplicación', error);
+    console.warn('Failed to start the application', error);
   });
 ```
 
