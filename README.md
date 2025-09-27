@@ -1,5 +1,5 @@
 # React Native Intent Launcher
-[![npm version](https://badge.fury.io/js/@angelkrak%2Freact-native-intent-launcher.svg)](https://badge.fury.io/js/@angelkrak%2Freact-native-intent-launcher) [![downloads](https://img.shields.io/npm/dt/@angelkrak/react-native-intent-launcher.svg)](https://npmcharts.com/compare/@angelkrak/react-native-intent-launcher?minimal=true) ![MIT](https://img.shields.io/dub/l/vibe-d.svg) ![Platform - Android](https://img.shields.io/badge/platforms-android-lightgrey.svg)
+[![npm version](https://badge.fury.io/js/@angelkrak%2Freact-native-intent-launcher.svg)](https://badge.fury.io/js/@angelkrak%2Freact-native-intent-launcher) [![downloads](https://img.shields.io/npm/dt/@angelkrak/react-native-intent-launcher.svg)](https://npmcharts.com/compare/@angelkrak/react-native-intent-launcher?minimal=true) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-brightgreen.svg)](https://github.com/proyecto26/react-native-inappbrowser/graphs/commit-activity) ![MIT](https://img.shields.io/dub/l/vibe-d.svg) ![Platform - Android](https://img.shields.io/badge/platforms-android-lightgrey.svg)
 
 call native function `startActivity` in react-native
 
