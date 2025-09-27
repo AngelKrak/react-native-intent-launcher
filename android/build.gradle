@@ -1,22 +1,42 @@
 def safeExtGet(prop, fallback) {
-    rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+		rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
 }
 
 apply plugin: "com.android.library"
+apply plugin: "kotlin-android"
 
 android {
-    compileSdkVersion safeExtGet("compileSdkVersion", "28.0.2")
-    buildToolsVersion safeExtGet("buildToolsVersion", 28)
+		compileSdkVersion safeExtGet("compileSdkVersion", 34)
+		buildToolsVersion safeExtGet("buildToolsVersion", "34.0.0")
 
-    defaultConfig {
-        minSdkVersion safeExtGet('minSdkVersion', 16)
-        versionCode 1
-        versionName "1.0"
-    }
+		defaultConfig {
+				minSdkVersion safeExtGet("minSdkVersion", 24)
+				targetSdkVersion safeExtGet("targetSdkVersion", 34)
+				versionCode 1
+				versionName "1.0.3"
+		}
+
+		compileOptions {
+				sourceCompatibility JavaVersion.VERSION_17
+				targetCompatibility JavaVersion.VERSION_17
+		}
+
+		kotlinOptions {
+				jvmTarget = "17"
+		}
+
+		packagingOptions {
+				resources {
+						excludes += ["/META-INF/*"]
+				}
+		}
 }
 
 dependencies {
-    implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation "com.android.support:appcompat-v7:+"
-    implementation "com.facebook.react:react-native:+"  // From node_modules
+		implementation fileTree(dir: "libs", include: ["*.jar"])
+
+		implementation "androidx.appcompat:appcompat:1.7.0"
+		implementation "androidx.core:core-ktx:1.13.1"
+
+		implementation "com.facebook.react:react-native:+"  // Desde node_modules
 }
